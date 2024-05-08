@@ -55,21 +55,48 @@ public class InfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 quantity++;
                 displayQunatity();
+                coffeePrice.setText(String.valueOf(calculatePrice()));
             }
         });
 
         minusQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int basePrice = 5;
                 if(quantity == 0){
                     Toast.makeText(InfoActivity.this, "Invalid Quantity", Toast.LENGTH_LONG).show();
                 }
                 else{
                     quantity--;
                     displayQunatity();
+                    coffeePrice.setText(String.valueOf(calculatePrice()));
                 }
             }
         });
+        addToppings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                coffeePrice.setText(String.valueOf(calculatePrice()));
+            }
+        });
+
+        addExtraCream.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                coffeePrice.setText(String.valueOf(calculatePrice()));
+            }
+        });
+    }
+
+    private int calculatePrice(){
+        int basePrice = 5;
+        if(addToppings.isChecked()){
+            basePrice = basePrice + 2;
+        }
+        if(addExtraCream.isChecked()){
+            basePrice = basePrice + 3;
+        }
+        return basePrice * quantity;
     }
 
     private void displayQunatity(){
