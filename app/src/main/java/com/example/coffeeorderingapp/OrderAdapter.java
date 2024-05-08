@@ -1,6 +1,7 @@
 package com.example.coffeeorderingapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
         return modelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView coffeeName, coffeeDescription;
         ImageView coffeeImage;
@@ -57,6 +58,16 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
             coffeeName = itemView.findViewById(R.id.coffeeName);
             coffeeDescription = itemView.findViewById(R.id.coffeeDescription);
             coffeeImage = itemView.findViewById(R.id.coffeeImage);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if(position == 0){
+                Intent intent = new Intent(context, InfoActivity.class);
+                context.startActivity(intent);
+            }
         }
     }
 }
