@@ -38,7 +38,7 @@
                android:layout_toRightOf="@+id/coffeeImage" />
 
             <TextView
-                android:id="@+id/coffeDescription"
+                android:id="@+id/coffeeDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description"
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click to Order"
-                android:layout_below="@+id/coffeDescription"
+                android:layout_below="@+id/coffeeDescription"
                 android:layout_toRightOf="@id/coffeeImage"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="4dp"/>
